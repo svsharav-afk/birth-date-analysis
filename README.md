@@ -20,25 +20,18 @@
 
 ## Как выглядит
 
-<table>
-  <tr>
-    <td align="center" valign="top">
-      <img src="docs/screenshots/02-before-first-passport.png" width="210" alt="Результат для даты рождения 01.01.2013, до первого получения паспорта" /><br />
-      <sub>01.01.2013 — до первого получения паспорта</sub>
-    </td>
-    <td align="center" valign="top">
-      <img src="docs/screenshots/03-after-45.png" width="210" alt="Результат для даты рождения 01.01.1970, возраст 45+" /><br />
-      <sub>01.01.1970 — возраст 45+</sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top">
-      <img src="docs/screenshots/04-leap-day.png" width="210" alt="Результат для високосной даты рождения 29.02.2000" /><br />
-      <sub>29.02.2000 — високосная дата</sub>
-    </td>
-    <td></td>
-  </tr>
-</table>
+<p>
+  <a href="docs/screenshots/02-before-first-passport.png"><img src="docs/screenshots/02-before-first-passport.png" width="300" alt="Результат для даты рождения 01.01.2013, до первого получения паспорта" /></a><br />
+  <sub>01.01.2013 — до первого получения паспорта</sub>
+</p>
+<p>
+  <a href="docs/screenshots/03-after-45.png"><img src="docs/screenshots/03-after-45.png" width="300" alt="Результат для даты рождения 01.01.1970, возраст 45+" /></a><br />
+  <sub>01.01.1970 — возраст 45+</sub>
+</p>
+<p>
+  <a href="docs/screenshots/04-leap-day.png"><img src="docs/screenshots/04-leap-day.png" width="300" alt="Результат для високосной даты рождения 29.02.2000" /></a><br />
+  <sub>29.02.2000 — високосная дата</sub>
+</p>
 
 ## Установка в Chrome
 
