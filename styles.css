@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-synthesis: none;
+  --bg: #171c23;
+  --surface: #202731;
+  --surface-raised: #27313d;
+  --text: #edf2f7;
+  --muted: #a0adbb;
+  --subtle: #748293;
+  --border: #364250;
+  --accent: #8db8ff;
+  --accent-strong: #315f9d;
+  --accent-contrast: #101722;
+  --focus: #9bc3ff;
+  --error: #ff8c88;
+  --history: #909baa;
+  --positive: #9dd6bd;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --surface-raised: #eef2f6;
+  --text: #1b2632;
+  --muted: #637182;
+  --subtle: #7d8996;
+  --border: #d8dfe6;
+  --accent: #315f9d;
+  --accent-strong: #254c83;
+  --accent-contrast: #ffffff;
+  --focus: #315f9d;
+  --error: #b42318;
+  --history: #85919e;
+  --positive: #287254;
+}
+* { box-sizing: border-box; }
+body { width: 400px; margin: 0; background: var(--bg); color: var(--text); }
+button, input { font: inherit; }
+.app { padding: 17px 20px 19px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 19px; }
+.brand { display: flex; min-width: 0; align-items: center; gap: 10px; }
+.brand-mark { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent); border-radius: 10px; background: color-mix(in srgb, var(--accent) 13%, var(--surface)); color: var(--accent); }
+.brand-mark svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+h1 { overflow: hidden; margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
+.theme-toggle { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; gap: 4px; padding: 0 9px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--muted); font-size: 11px; cursor: pointer; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--text); }
+#date-form { margin-bottom: 2px; }
+label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.entry-row { display: flex; gap: 8px; }
+input { width: 0; min-width: 0; flex: 1; padding: 10px 11px; border: 1px solid var(--border); border-radius: 8px; outline: none; background: var(--surface); color: var(--text); font-size: 15px; letter-spacing: .02em; }
+input::placeholder { color: var(--subtle); opacity: .86; }
+input:focus { border-color: var(--focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 24%, transparent); }
+button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.submit-button { flex: 0 0 auto; padding: 0 14px; border: 1px solid var(--accent-strong); border-radius: 8px; background: var(--accent-strong); color: #fff; font-size: 12px; font-weight: 650; cursor: pointer; }
+:root[data-theme="dark"] .submit-button { color: #f8fbff; }
+.submit-button:hover { filter: brightness(1.12); }
+.error { min-height: 16px; margin: 6px 0 0; color: var(--error); font-size: 11px; line-height: 1.35; }
+.result { padding-top: 2px; }
+.age-summary { padding: 7px 0 12px; }
+.birth-date { margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: .035em; }
+.age-years { margin: 5px 0 0; color: var(--accent); font-size: 31px; font-weight: 720; letter-spacing: -.045em; line-height: 1.08; }
+.age-detail { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.zodiac { margin: 7px 0 0; color: var(--text); font-size: 13px; font-weight: 550; }
+.birthday-value { margin: 7px 0 0; color: var(--subtle); font-size: 11px; }
+.passport { margin-top: 7px; padding-top: 13px; border-top: 1px solid var(--border); }
+h2 { margin: 0 0 9px; font-size: 13px; font-weight: 650; letter-spacing: .01em; }
+#passport-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+#passport-list li { display: block; padding-left: 10px; border-left: 2px solid var(--accent); }
+#passport-list li.historical { border-color: var(--border); color: var(--history); }
+.event-main { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 4px 10px; }
+.event-title { min-width: 0; color: var(--text); font-size: 12px; font-weight: 560; }
+.event-main strong { color: var(--text); font-size: 12px; font-weight: 650; white-space: nowrap; }
+.historical .event-title, .historical .event-main strong { color: var(--history); }
+.event-detail { grid-column: 1 / -1; color: var(--muted); font-size: 10px; line-height: 1.35; }
+.lifetime-note { margin: 9px 0 0 12px; color: var(--positive); font-size: 10px; line-height: 1.35; }
+.leap-note { margin: 9px 0 0 12px; color: var(--subtle); font-size: 10px; line-height: 1.35; }
+[hidden] { display: none !important; }

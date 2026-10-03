@@ -1,0 +1,10 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {calculateAge} from "../lib/age.js";
+const d=(day,month,year)=>({day,month,year});
+test("age before, on, and after birthday",()=>{assert.deepEqual(calculateAge(d(4,10,2000),d(3,10,2026)),{years:25,months:11,days:29});assert.deepEqual(calculateAge(d(3,10,2000),d(3,10,2026)),{years:26,months:0,days:0});assert.deepEqual(calculateAge(d(2,10,2000),d(3,10,2026)),{years:26,months:0,days:1})});
+test("month end regression: Jan 31 to Mar 1 has no negative components",()=>{const age=calculateAge(d(31,1,2000),d(1,3,2026));assert.deepEqual(age,{years:26,months:1,days:1});assert.ok(Object.values(age).every(value=>value>=0))});
+test("short February is handled by calendar month clamping",()=>{assert.deepEqual(calculateAge(d(31,1,2000),d(28,2,2025)),{years:25,months:1,days:0});assert.deepEqual(calculateAge(d(31,1,2000),d(1,3,2025)),{years:25,months:1,days:1})});
+test("leap day rule treats Feb 28 as anniversary in non-leap years",()=>{assert.deepEqual(calculateAge(d(29,2,2000),d(27,2,2025)),{years:24,months:11,days:29});assert.deepEqual(calculateAge(d(29,2,2000),d(28,2,2025)),{years:25,months:0,days:0})});
+test("Feb 29 remains Feb 29 in leap years",()=>{assert.deepEqual(calculateAge(d(29,2,2000),d(29,2,2024)),{years:24,months:0,days:0})});
+test("future birth dates are rejected",()=>{assert.throws(()=>calculateAge(d(4,10,2026),d(3,10,2026)),/future/i)});

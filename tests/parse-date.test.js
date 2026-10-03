@@ -1,0 +1,14 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {findSelectionCandidates,parseDateCandidate,parseManualDate,parseSelectionText} from "../lib/parse-date.js";
+const ref={year:2026,month:10,day:3};
+test("manual parser accepts supported separator forms and normalizes date parts",()=>{for(const text of ["01.02.1990","1.2.1990","01-02-1990","1-2-1990","01/02/1990","1/2/1990","01 02 1990","1 2 1990"])assert.deepEqual(parseManualDate(text,ref),{ok:true,date:{day:1,month:2,year:1990}},text)});
+test("parser rejects two digit years and mixed separators",()=>{assert.equal(parseDateCandidate("01.02.90").error,"invalid-format");assert.equal(parseDateCandidate("01-02/1990").error,"invalid-format")});
+test("parser rejects impossible calendar dates",()=>{assert.equal(parseDateCandidate("31.04.2000").error,"invalid-date");assert.equal(parseDateCandidate("29.02.1900").error,"invalid-date")});
+test("selection parser finds one date in surrounding text",()=>{assert.deepEqual(parseSelectionText("Дата рождения: 1/2/1990, подтверждена",ref),{ok:true,date:{day:1,month:2,year:1990}})});
+test("selection parser reports multiple valid dates without guessing",()=>{assert.equal(parseSelectionText("01.02.1990 и 02.03.1991",ref).error,"multiple-dates")});
+test("invalid selection candidate does not block a later valid date",()=>{assert.deepEqual(parseSelectionText("31.02.1990 затем 01.03.1990",ref),{ok:true,date:{day:1,month:3,year:1990}})});
+test("selection parser reports no match and invalid candidate",()=>{assert.equal(parseSelectionText("даты нет",ref).error,"no-date");assert.equal(parseSelectionText("31.02.1990",ref).error,"invalid-date")});
+test("manual parser rejects future dates",()=>{assert.equal(parseManualDate("04.10.2026",ref).error,"future-date")});
+test("future valid selection candidates are validated before use",()=>{assert.equal(parseSelectionText("01.02.1990, 04.10.2026",ref).error,"multiple-dates");assert.equal(parseSelectionText("04.10.2026",ref).error,"future-date")});
+test("selection scans all date-shaped candidates",()=>{assert.equal(findSelectionCandidates("31.02.1990 и 01.03.1990").length,2)});

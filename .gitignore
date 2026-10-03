@@ -1,0 +1,8 @@
+# Local-only project reports and pre-release capture checklist
+docs/IMPLEMENTATION_REPORT*.md
+docs/UX_V2.md
+docs/RELEASE_1.0.0.md
+docs/screenshots/README.md
+
+# Release archives are distributed through GitHub Releases
+*.zip

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Календарная дата</title>
+  <desc id="desc">Белая страница календаря на бирюзовом фоне с янтарной отметкой выбранной даты.</desc>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="#087F83"/>
+  <rect x="13" y="14" width="38" height="38" rx="6" fill="#FFFFFF"/>
+  <path d="M13 20a6 6 0 0 1 6-6h26a6 6 0 0 1 6 6v6H13z" fill="#C9F0E8"/>
+  <path d="M23 11v9M41 11v9" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="23" cy="33" r="2.4" fill="#71849A"/>
+  <circle cx="32" cy="33" r="2.4" fill="#71849A"/>
+  <circle cx="41" cy="33" r="2.4" fill="#71849A"/>
+  <circle cx="23" cy="42" r="2.4" fill="#71849A"/>
+  <circle cx="32" cy="42" r="4" fill="#F7AE48"/>
+  <circle cx="41" cy="42" r="2.4" fill="#71849A"/>
+</svg>

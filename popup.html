@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Анализ даты рождения</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 7h8M8 11h8M8 15h3"></path><circle cx="15.5" cy="15.5" r="2"></circle></svg>
+        </span>
+        <h1>Анализ даты рождения</h1>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить светлую тему"></button>
+    </header>
+
+    <form id="date-form" novalidate>
+      <label for="birth-date">Дата рождения</label>
+      <div class="entry-row">
+        <input id="birth-date" name="birth-date" type="text" inputmode="numeric" autocomplete="off" placeholder="ДД.ММ.ГГГГ" aria-describedby="date-error">
+        <button class="submit-button" type="submit">Рассчитать</button>
+      </div>
+      <p id="date-error" class="error" role="alert" aria-live="polite"></p>
+    </form>
+
+    <section id="result" class="result" aria-live="polite" hidden>
+      <section class="age-summary" aria-label="Возраст">
+        <p id="normalized-date" class="birth-date"></p>
+        <p id="age-years" class="age-years"></p>
+        <p id="age-detail" class="age-detail"></p>
+        <p id="zodiac" class="zodiac"></p>
+        <p id="birthday-value" class="birthday-value"></p>
+      </section>
+      <section class="passport" aria-labelledby="passport-title">
+        <h2 id="passport-title">Паспорт РФ</h2>
+        <ul id="passport-list"></ul>
+        <p id="leap-note" class="leap-note" hidden>Для 29 февраля даты в невисокосные годы рассчитаны по правилу 28 февраля.</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
